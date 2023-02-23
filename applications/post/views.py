@@ -110,7 +110,6 @@ class PostModelViewSet(ModelViewSet):
         return Response(serializer.data)
 
 
-
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
@@ -122,11 +121,11 @@ class CreateImageAPIView(generics.CreateAPIView):
     permission_classes = [IsAuthenticated]
 
 
-class CommentViewSet(ViewSet):
-    def list(self, request):
-        comments = Comment.objects.all()
-        serializer = CommentSerializer(comments, many=True)
-        return Response(serializer.data)
+# class CommentViewSet(ViewSet):
+#     def list(self, request):
+#         comments = Comment.objects.all()
+#         serializer = CommentSerializer(comments, many=True)
+#         return Response(serializer.data)
 
 
 class CommentModelViewSet(ModelViewSet):

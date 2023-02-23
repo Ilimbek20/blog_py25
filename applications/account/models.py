@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.base_user import BaseUserManager
 from django.contrib.auth.hashers import make_password
+from django.utils import timezone
 
 
 class UserManager(BaseUserManager):
@@ -35,6 +36,29 @@ class UserManager(BaseUserManager):
 
 
 
+# class CustomUser(AbstractUser):
+#     # username = models.CharField(max_length=50, unique=True, help_text=("Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only."))
+#     email = models.EmailField(unique=True)
+#     password = models.CharField(max_length=100)
+#     # is_staff = models.BooleanField(default=False,help_text=("Designates whether the user can log into this admin site."))
+#     is_active = models.BooleanField(default=False,help_text=("Designates whether this user should be treated as active. ""Unselect this instead of deleting accounts."))
+#     username = None
+#     # date_joined = models.DateTimeField(("date joined"), default=timezone.now)
+#     activation_code = models.CharField(max_length=50, blank=True)
+    
+    # objects = UserManager()
+
+    # EMAIL_FIELD = "email"
+    # REQUIRED_FIELDS = []
+
+    # def __str__(self):
+    #     return self.email
+
+    # def create_activation_code(self):
+    #     import uuid
+    #     code = str(uuid.uuid4())
+    #     self.activation_code = code
+
 class CustomUser(AbstractUser):
     email = models.EmailField(unique=True)
     password = models.CharField(max_length=100)
@@ -54,3 +78,7 @@ class CustomUser(AbstractUser):
         import uuid
         code = str(uuid.uuid4())
         self.activation_code = code
+        
+        
+        
+        

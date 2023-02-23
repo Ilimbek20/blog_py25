@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model, authenticate
 from applications.account.send_email import send_activation_code
+from applications.account.models import *
 
 User = get_user_model()  # CustomUser
 

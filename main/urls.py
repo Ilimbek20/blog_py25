@@ -17,8 +17,9 @@ schema_view = get_schema_view(
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('swagger/', schema_view.with_ui('swagger')),
-    path('api/v1/account/', include('applications.account.urls')),
+    path('account/', include('applications.account.urls')),
     path('api/v1/post/', include('applications.post.urls')),
+    path('api/v1/feedback/', include('applications.feedback.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # localhost:8000/account/register
